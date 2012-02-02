@@ -14,6 +14,12 @@ L.TileLayer.Canvas = L.TileLayer.extend({
 		this.drawTile(tile, tile._tilePoint, tile._zoom);
 	},
 
+	_resetTile: function (tile) {
+		if (tile.tileImg) {
+			delete tile.tileImg;
+		}
+	},
+
 	_createTileProto: function () {
 		this._canvasProto = L.DomUtil.create('canvas', 'leaflet-tile');
 		this._tileImg = L.DomUtil.create('img', 'leaflet-tile');
